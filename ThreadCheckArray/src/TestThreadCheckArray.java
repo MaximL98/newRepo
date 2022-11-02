@@ -7,14 +7,17 @@ public class TestThreadCheckArray {
 			Thread thread1, thread2;
 			System.out.println("Enter array size");
 			int num  = input.nextInt();
-			ArrayList<Integer> array = null;
+			ArrayList<Integer> array=new ArrayList<Integer>();
 			System.out.println("Enter numbers for array");
 			
-			for (int index = 0; index < num; index++) 
+			for (int index = 0; index < num; index++)
+			{
 				array.add(index, input.nextInt());
+
+			}
 			System.out.println("Enter number");
 			num = input.nextInt();
-//			
+			
 			SharedData sd = new SharedData(array, num);
 			
 			thread1 = new Thread(new ThreadCheckArray(sd), "thread1");
@@ -35,7 +38,6 @@ public class TestThreadCheckArray {
 				System.out.println("Sorry");
 				return;
 			}
-			//
 			System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().size());
 			System.out.print("I:    ");
 			for(int index = 0; index < sd.getArray().size() ; index++)
